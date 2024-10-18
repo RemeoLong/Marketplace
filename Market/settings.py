@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+SECRET_KEY = os.getenv('SECRET')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,7 @@ SECRET_KEY = 'django-insecure-@@rd0o18hk4rc1_ivu3iuz*_=!3@f%0=7o)$n7ju*7b8bow53&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -73,11 +76,25 @@ WSGI_APPLICATION = 'Market.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+'''
+# settings.py
+DATABASES = {
+    "default": {
+        "ENGINE": "mssql",
+        "NAME": "Marketplace",
+        "USER": "USER",
+        "PASSWORD": "PASSWORD",
+        "HOST": "localhost",
+        "PORT": "1433",
+        "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server",
+        },
+    },
 }
 
 
@@ -117,6 +134,7 @@ USE_TZ = True
 
 #STATIC_ROOT: market/settings.py
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
