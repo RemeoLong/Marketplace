@@ -2,27 +2,27 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'home.html', {})
+    return render(request, 'Index/home.html', {})
 
 
 def shop(request):
-    return render(request, 'shop.html', {})
+    return render(request, 'Index/shop.html', {})
 
 
 def detail(request):
-    return render(request, 'detail.html', {})
+    return render(request, 'Index/detail.html', {})
 
 
 def cart(request):
-    return render(request, 'cart.html', {})
+    return render(request, 'Index/cart.html', {})
 
 
 def checkout(request):
-    return render(request, 'checkout.html', {})
+    return render(request, 'Index/checkout.html', {})
 
 
 def contact(request):
-    return render(request, 'contact.html', {})
+    return render(request, 'Index/contact.html', {})
 
 
 def customer_list(request):
