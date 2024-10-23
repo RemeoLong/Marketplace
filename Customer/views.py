@@ -5,6 +5,10 @@ def home(request):
     return render(request, 'Index/home.html', {})
 
 
+def comingsoon(request):
+    return render(request, 'Index/index_comingsoon.html', {})
+
+
 def shop(request):
     return render(request, 'Index/shop.html', {})
 
